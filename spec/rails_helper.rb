@@ -9,7 +9,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 # return unless Rails.env.test?
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
-require 'capybara/rspec'
+require "capybara/cuprite"
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -43,6 +43,34 @@ RSpec.configure do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
+
+  # config.before(:each, type: :system, js: true) do
+  #   driven_by(:cuprite, screen_size: [ 1440, 810 ], options: {
+  #     js_errors: false,
+  #     headless: true,
+  #     process_timeout: 25,
+  #     browser_options: { "no-sandbox" => nil }
+  #   })
+  # end
+
+  Capybara.register_driver(:cuprite) do |app|
+    Capybara::Cuprite::Driver.new(
+      app,
+      window_size: [ 1440, 810 ],
+      browser_options: { 'no-sandbox': nil },
+      js_errors: false,
+      headless: %w[0],
+      inspector: true,
+      url: ENV['CHROME_URL']
+    )
+  end
+
+  # Configure Capybara to use :cuprite driver by default
+  Capybara.javascript_driver = :cuprite
+
+  config.before(:each, type: :system, js: true) do
+    driven_by(:cuprite)
+  end
 
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
