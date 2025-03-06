@@ -44,32 +44,33 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 
-  # config.before(:each, type: :system, js: true) do
-  #   driven_by(:cuprite, screen_size: [ 1440, 810 ], options: {
-  #     js_errors: false,
-  #     headless: true,
-  #     process_timeout: 25,
-  #     browser_options: { "no-sandbox" => nil }
-  #   })
-  # end
-
   Capybara.register_driver(:cuprite) do |app|
     Capybara::Cuprite::Driver.new(
       app,
       window_size: [ 1440, 810 ],
       browser_options: { 'no-sandbox': nil },
       js_errors: false,
+      timeout: 20,
       headless: %w[0],
       inspector: true,
       url: ENV['CHROME_URL']
     )
   end
 
-  # Configure Capybara to use :cuprite driver by default
-  Capybara.javascript_driver = :cuprite
+  LOCAL_PORT = 3001
+  LOCAL_IP = if ENV['CHROME_URL']
+              Socket.ip_address_list.find(&:ipv4_private?)&.ip_address
+            else
+              'localhost'
+            end
 
-  config.before(:each, type: :system, js: true) do
-    driven_by(:cuprite)
+  config.before(:each, type: :system) do
+    driven_by :cuprite
+  
+    Capybara.app_host = "http://#{LOCAL_IP}:#{LOCAL_PORT}"
+    Capybara.server_host = LOCAL_IP
+    Capybara.server_port = LOCAL_PORT
+    Capybara.always_include_port = true
   end
 
   # You can uncomment this line to turn off ActiveRecord support entirely.

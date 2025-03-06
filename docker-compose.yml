@@ -1,0 +1,41 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:15
+    container_name: postgres_dev
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: vacancy_board_development
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  app:
+    build: .
+    container_name: rails_app
+    depends_on:
+      - db
+    volumes:
+      - .:/opt/app
+      - bundle_data:/usr/local/bundle
+      - node_modules:/opt/app/node_modules
+      - tmp_data:/opt/app/tmp
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgres://postgres:password@db:5432/vacancy_board_development
+      RAILS_ENV: development
+      NODE_ENV: development
+    stdin_open: true
+    tty: true
+    command: [ "bin/dev" ]
+
+volumes:
+  postgres_data:
+  bundle_data:
+  node_modules:
+  tmp_data:
