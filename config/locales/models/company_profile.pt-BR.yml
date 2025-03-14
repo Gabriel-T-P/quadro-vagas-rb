@@ -16,3 +16,4 @@ pt-BR:
       invalid_email_equals_user_email: 'deve ser diferente do email registrado para como seu email de usuario'
       invalid_email_already_registered: 'já está em uso, por favor informe um email diferente'
       invalid_url_format: 'deve ser um URL válido (começar com http:// ou https://, ter ponto separando o domínio e terminar com uma extensão válida de 2 a 6 caracteres)'
+      company_not_found: não encontrada para o ID fornecido

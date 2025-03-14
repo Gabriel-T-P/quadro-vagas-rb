@@ -3,5 +3,7 @@ pt-BR:
     new:
       title: Importe seus dados aqui
       add_csv_or_txt: Selecione um arquivo CSV ou TXT
-      save: Importar Dados
-      
+      save: Importar
+    create:
+      process_initiated: Importação iniciada com sucesso
+      file_not_present: Por favor, selecione um arquivo para importar

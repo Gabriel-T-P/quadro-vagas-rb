@@ -1,0 +1,2 @@
+V, Desenvolvedor Ruby on Rails, 5000, BRL, Mensal, Presencial, 1, São Paulo, 2, 1
+V, Desenvolvedor Frontend, 6000, BRL, Mensal, Remoto, 2, Remoto, 1, 2

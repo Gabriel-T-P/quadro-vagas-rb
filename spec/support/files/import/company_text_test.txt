@@ -1,0 +1,2 @@
+E, Empresa A, https://www.empresa-a.com,contato@empresa-a.com, 1
+E, Empresa B, ,contato@empresa-b.com, 2

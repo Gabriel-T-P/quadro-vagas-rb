@@ -1,0 +1,6 @@
+U, usuario1@example.com, 1, Nome Teste 1, Sobrenome Teste 1
+U, usuario3@example.com, , Nome Teste 2, Sobrenome Teste 2
+E, Empresa A, https://www.empresa-a.com,contato@empresa-a.com, 1
+E, Empresa B, ,contato@empresa-b.com, 2
+V, Desenvolvedor Ruby on Rails, 5000, BRL, Mensal, Presencial, 1, São Paulo, 2, 1
+V, Desenvolvedor Frontend, 6000, BRL, Mensal, Remoto, 2, Remoto, 1, 2

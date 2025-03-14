@@ -11,3 +11,4 @@ pt-BR:
         last_name: Sobrenome
         password: Senha
         password_confirmation: Confirmação de Senha
+        company_profile: Perfil de Empresa
