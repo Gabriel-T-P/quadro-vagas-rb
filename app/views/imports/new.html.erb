@@ -1,0 +1,12 @@
+<div class="space-y-4 text-center">
+  <h1><%= t('.title') %></h1>
+
+  <%= form_with url: imports_path, multipart: true, local: true do |f| %>
+    <div>
+      <%= f.label :file, t('.add_csv_or_txt'), class: "block text-sm font-medium text-gray-700" %>
+      <%= f.file_field :file, accept: ".csv, .txt", class: "mt-1 block w-full rounded-lg border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" %>
+    </div>
+
+    <%= f.submit t('.save'), class: "bg-blue-600 hover:bg-blue-700 text-white font-bold my-4 py-2 px-4 rounded-lg shadow-md transition duration-300" %>
+  <% end %>
+</div>

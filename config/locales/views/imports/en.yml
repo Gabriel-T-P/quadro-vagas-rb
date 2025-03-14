@@ -1,0 +1,7 @@
+en:
+  imports:
+    new:
+      title: Import your data here
+      add_csv_or_txt: Select an CSV or TXT file
+      save: Import Data
+      

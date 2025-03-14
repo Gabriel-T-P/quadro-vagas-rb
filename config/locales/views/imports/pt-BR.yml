@@ -1,0 +1,7 @@
+pt-BR:
+  imports:
+    new:
+      title: Importe seus dados aqui
+      add_csv_or_txt: Selecione um arquivo CSV ou TXT
+      save: Importar Dados
+      
