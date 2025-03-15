@@ -1,2 +1,11 @@
 en:
   negated_access: You can not access this page
+  salary_period:
+    daily: daily
+    weekly: weekly
+    monthly: monthly
+    yearly: yearly
+  work_arrangement:
+    remote: remote
+    hybrid: hybrid
+    in_person: in_person

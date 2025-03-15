@@ -1,2 +1,11 @@
 pt-BR:
   negated_access: Acesso não autorizado
+  salary_period:
+    daily: diário
+    weekly: semanal
+    monthly: mensal
+    yearly: anual
+  work_arrangement:
+    remote: remoto
+    hybrid: híbrido
+    in_person: presencial
