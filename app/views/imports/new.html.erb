@@ -9,4 +9,14 @@
 
     <%= f.submit t('.save'), class: "bg-blue-600 hover:bg-blue-700 text-white font-bold my-4 py-2 px-4 rounded-lg shadow-md transition duration-300" %>
   <% end %>
+
+  <div>
+    <% if @import_id %>
+      <turbo-frame id="import_status"></turbo-frame>
+        <%= render "import_status", status: @status %>
+      </turbo-frame>
+
+      <%= turbo_stream_from @import_id %>
+    <% end %>
+  </div>
 </div>
